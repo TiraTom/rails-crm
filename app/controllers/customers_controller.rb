@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :authenticate_url!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @q = Customer.search(params[:q])
