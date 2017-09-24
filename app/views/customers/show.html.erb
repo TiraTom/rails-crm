@@ -30,10 +30,24 @@
     <% end %>
     
     <%= form_for(@comment, url: { controller: :comments, action: :create }) do |f| %>
-      <div class="form-group">
-        <%= f.label :body, '対応内容' %><br>
-        <%= f.text_area :body, class: "form-control" %>
+    <% if flash[:error_message].present? %>
+      <div class="alert alert-danger">
+        <p><b><%= flash[:error_count] %>件のエラーがあります</b></p>
+        <ul>
+          <% flash[:error_message].each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
       </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :body, '対応内容' %><br>
+      <% if flash[:error_comment].present? %>
+        <%= f.text_area :body, class: "form-control" , value: flash[:error_comment] %>
+      <% else %>        
+        <%= f.text_area :body, class: "form-control" %>
+      <% end %>
+    </div>
       <%= f.hidden_field :customer_id, value: @customer.id %>
       <%= f.submit class: "btn btn-default" %>
     <% end %>
