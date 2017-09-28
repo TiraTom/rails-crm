@@ -1,6 +1,17 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 ja:
+  activerecord:
+    attributes:
+      user:
+        family_name: '姓'
+        given_name: '名'
+        email: '電子メール'
+        image_url: 'プロフィール画像'
+        password: 'パスワード'
+        password_confirmation: 'パスワード再入力'
+        current_password: '現在のパスワード'
+
   devise:
     confirmations:
       confirmed: 'アカウントを登録しました。'
