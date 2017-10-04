@@ -9,13 +9,21 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       customer: "顧客"
-    attirbutes:
+      company: ""
+      post: ""
+    attributes:
       customer:
         family_name: "姓"
         given_name: "名"
         email: "メールアドレス"
-        company_id: "所属会社"
         post_id: "役職"
+        company_id: "所属会社"
+      company:
+        name: "所属会社名"
+      post:
+        position_name: "役職名"
+      
+  
   date:
     abbr_day_names:
     - 日
